@@ -1,4 +1,4 @@
-These Codes are for zero initialization after Dec. 19 2024.
+These codes are used for zero initialization as of Dec. 19, 2024.
 
 sjw007s@korea.ac.kr
 
