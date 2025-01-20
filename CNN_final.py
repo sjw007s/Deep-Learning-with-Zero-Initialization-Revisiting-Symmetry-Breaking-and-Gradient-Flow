@@ -46,56 +46,35 @@ def format_time(start_time):
     seconds = int(epoch_duration % 60)
     print(f"{hours:02}:{minutes:02}:{seconds:02}")
 
-# Parsing a mapping file (reading a text file) from 2017 ILSVRC kit for target label
-def train_parse_mapping_file(mapping_file):
-    class_to_idx = {} # Dictionary to store class-to-index mappings
-    with open(mapping_file, 'r') as f:
-        for line in f:
-            folder, idx, _ = line.strip().split(' ', 2) # Split each line by space into folder name and index
-            class_to_idx[folder] = int(idx)-1   # Map the folder to its corresponding index (adjusted by -1 for zero-indexing)
-    return class_to_idx
-
-# Parsing validation ground truth file
-def test_parse_mapping_file(mapping_file):
-    class_to_idx = [] # List to store validation labels
-    with open(mapping_file, 'r') as f:
-        for line in f:
-            number = line.strip() # Read each line and strip any extra whitespace
-            class_to_idx.append(int(number)-1) # Append the class index to the list (adjusted by -1)
-    return class_to_idx
-
-# training data augmentation
-transform_train = transforms_v2.Compose([
-    transforms_v2.ToDtype(dtype = torch.float32, scale=True),
-    transforms_v2.RandomResize(min_size=256, max_size=481), # Randomly resize image between [256, 481) pixels 
-    transforms_v2.RandomHorizontalFlip(p=0.5), # 50% chance of horizontally flipping the image
-    transforms_v2.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]), # Normalize with ImageNet mean and std
-    transforms_v2.RandomCrop(224) # Randomly crop to 224x224
-])
-
-# test data augmentation
-transform_test = transforms_v2.Compose([
-    transforms_v2.ToDtype(dtype = torch.float32, scale=True),
-    transforms_v2.Resize(256),  # Resize the shorter side to 256 pixels
-    transforms_v2.CenterCrop(256), # Center crop the image to 256x256
-    transforms_v2.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]), # Normalize
-    transforms_v2.TenCrop(224) # Apply ten-crop augmentation (corner and center crops)
-])
-
 # training dataset
 class ImageNetDataset_train(Dataset): 
-    def __init__(self, root_dir, mapping_file, transform):
-        self.transform = transform # Transformations to apply to each image
+    def __init__(self):
         self.totensor = transforms_v2.ToImage() # Transform to convert data into tensor format
+        self.transform_train1 = transforms_v2.Compose([
+                            transforms_v2.RandomResize(min_size=256, max_size=481), # Randomly resize image between [256, 481) pixels 
+                            transforms_v2.RandomHorizontalFlip(p=0.5), # 50% chance of horizontally flipping the image
+                            transforms_v2.RandomCrop(224) # Randomly crop to 224x224
+                        ])
         
-        class_to_idx = train_parse_mapping_file(mapping_file) # Parse mapping file for class indices
+        self.transform_train2 = transforms_v2.Compose([
+                            transforms_v2.ToDtype(dtype = torch.float32, scale=True),
+                            transforms_v2.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]), # Normalize with ImageNet mean and std
+                        ])
+        # Parsing a mapping file (reading a text file) from 2017 ILSVRC kit for target label
+        
+        class_to_idx = {} # Dictionary to store class-to-index mappings
+        with open(r"C:\Users\sjw00\OneDrive\Desktop\dataset\imagenet\map_clsloc.txt", 'r') as f:
+            for line in f:
+                folder, idx, _ = line.strip().split(' ', 2) # Split each line by space into folder name and index
+                class_to_idx[folder] = int(idx)-1   # Map the folder to its corresponding index (adjusted by -1 for zero-indexing)
+        
         
         self.img_paths = [] # List to store image file paths
         self.labels = [] # List to store labels
 
-        class_folders = os.listdir(root_dir)
+        class_folders = os.listdir(r"C:\Users\sjw00\OneDrive\Desktop\dataset\imagenet\ILSVRC2012_img_train")
         for class_folder in class_folders:
-            folder_path = os.path.join(root_dir, class_folder) # Get full folder path
+            folder_path = os.path.join(r"C:\Users\sjw00\OneDrive\Desktop\dataset\imagenet\ILSVRC2012_img_train", class_folder) # Get full folder path
             for img_file in os.listdir(folder_path): # Iterate through images in the folder
                 img_path = os.path.join(folder_path, img_file) # Get full image path
                 
@@ -119,25 +98,36 @@ class ImageNetDataset_train(Dataset):
         img = Image.open(img_path) # Open image
         if img.mode != 'RGB':
             img = img.convert('RGB')
-        img_tensor = self.totensor(img).to(device)  # Convert image to tensor and move to GPU
-        img_tensor = self.transform(img_tensor) # Apply transformations to the image
-        
+        img_tensor = self.totensor(img)  # Convert image to tensor and move to GPU
+        img_tensor = self.transform_train1(img_tensor).to(device) # Apply transformations to the image
+        img_tensor = self.transform_train2(img_tensor) # Apply transformations to the image
         return img_tensor, label.to(device) # Return image and label (moved to GPU)
         
 # test dataset
 class ImageNetDataset_test(Dataset):
-    def __init__(self, root_dir, mapping_file, transform):
-        self.transform = transform
+    def __init__(self):
         self.totensor = transforms_v2.ToImage()
-
+        self.transform_test = transforms_v2.Compose([
+                            transforms_v2.ToDtype(dtype = torch.float32, scale=True),
+                            transforms_v2.Resize(256),  # Resize the shorter side to 256 pixels
+                            transforms_v2.CenterCrop(256), # Center crop the image to 256x256
+                            transforms_v2.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]), # Normalize
+                            transforms_v2.TenCrop(224) # Apply ten-crop augmentation (corner and center crops)
+                        ])
+        
         self.img_paths = []
-        for img_file in sorted(os.listdir(root_dir)): # Scan images in sorted order
-            img_path = os.path.join(root_dir, img_file)
+        for img_file in sorted(os.listdir(r"C:\Users\sjw00\OneDrive\Desktop\dataset\imagenet\ILSVRC2012_img_val")): # Scan images in sorted order
+            img_path = os.path.join(r"C:\Users\sjw00\OneDrive\Desktop\dataset\imagenet\ILSVRC2012_img_val", img_file)
             self.img_paths.append(img_path)
 
-        self.labels = test_parse_mapping_file(mapping_file)
-        self.labels = torch.tensor(self.labels, dtype=torch.long)
-        
+        # Parsing validation ground truth file
+        class_to_idx = [] # List to store validation labels
+        with open(r"C:\Users\sjw00\OneDrive\Desktop\dataset\imagenet\ILSVRC2012_validation_ground_truth.txt", 'r') as f:
+            for line in f:
+                number = line.strip() # Read each line and strip any extra whitespace
+                class_to_idx.append(int(number)-1) # Append the class index to the list (adjusted by -1)
+        self.labels = torch.tensor(class_to_idx, dtype=torch.long)
+
         print("test dataset load complete")
 
     def __len__(self): 
@@ -151,8 +141,8 @@ class ImageNetDataset_test(Dataset):
         if img.mode != 'RGB':
             img = img.convert('RGB')
         img_tensor = self.totensor(img).to(device)  # Convert image to tensor and move to GPU
-        img_tensor = self.transform(img_tensor) # Apply transformations to the image
-        
+        img_tensor = self.transform_test(img_tensor) # Apply transformations to the image
+
         return img_tensor, label.to(device) 
 
 def test_collate(batch): # Custom collate function for batching test data
@@ -236,16 +226,11 @@ if __name__ == "__main__":
     # GPU setting
     print("GPU device currently in use:", device) # Print the current GPU device
 
-    train_dir = r"C:\Users\sjw00\OneDrive\Desktop\dataset\imagenet\ILSVRC2012_img_train"  # training data location
-    train_mapping_file = r"C:\Users\sjw00\OneDrive\Desktop\dataset\imagenet\map_clsloc.txt"  # training data mapping file location
-    trainset = ImageNetDataset_train(root_dir=train_dir, mapping_file=train_mapping_file, transform=transform_train) 
-
-    test_dir = r"C:\Users\sjw00\OneDrive\Desktop\dataset\imagenet\ILSVRC2012_img_val"  # test data location
-    test_mapping_file = r"C:\Users\sjw00\OneDrive\Desktop\dataset\imagenet\ILSVRC2012_validation_ground_truth.txt"  # test data target label location
-    testset = ImageNetDataset_test(root_dir=test_dir, mapping_file = test_mapping_file, transform=transform_test)  
+    trainset = ImageNetDataset_train() 
+    testset = ImageNetDataset_test()  
     
-    train_dataloader = DataLoader(trainset, batch_size=128, shuffle=True, num_workers=5, persistent_workers=True) # DataLoader for training data
-    test_dataloader = DataLoader(testset, batch_size=10, shuffle=False, collate_fn = test_collate, num_workers=2, persistent_workers=True) 
+    train_dataloader = DataLoader(trainset, batch_size=256, shuffle=True, num_workers=7, persistent_workers=True) # DataLoader for training data
+    test_dataloader = DataLoader(testset, batch_size=10, shuffle=False, collate_fn = test_collate) 
 
     loss_fn = nn.CrossEntropyLoss(reduction='sum') # Define the loss function
 
