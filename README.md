@@ -25,7 +25,7 @@ You can reproduce the results by combining the previously mentioned dataloaders 
 ```python
 torch.nn.init.zeros_(a.weight) #"a" may vary depending on the code.
 torch.nn.init.zeros_(a.bias) #"a" may vary depending on the code.
-
+```
 ---
 
 ### 4. Functions like train() and test() may differ slightly depending on data preprocessing methods.
