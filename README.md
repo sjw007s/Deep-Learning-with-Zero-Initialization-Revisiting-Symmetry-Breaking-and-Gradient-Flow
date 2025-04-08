@@ -29,4 +29,4 @@ torch.nn.init.zeros_(a.bias) #"a" may vary depending on the code.
 ```
 ---
 
-### 4. Functions like train() and test() may differ slightly depending on data preprocessing methods.
+### 4. Functions like train() and test() may differ slightly depending on data preprocessing methods and models.
