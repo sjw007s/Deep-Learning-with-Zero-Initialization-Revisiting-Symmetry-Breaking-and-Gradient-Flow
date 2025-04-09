@@ -79,7 +79,7 @@ def FeedForward(dim, expansion_factor = 4, dropout = 0., dense = nn.Linear):
     a = dense(dim, inner_dim)
     b = dense(inner_dim, dim)
 
-    #torch.nn.init.zeros_(b.weight)
+    torch.nn.init.zeros_(b.weight)
 
     return nn.Sequential(
         a,
@@ -116,6 +116,8 @@ class jongwoo_mixer(nn.Module):
                         )
         self.b = nn.LayerNorm(512)
         self.c = nn.Linear(512, 200)
+
+        torch.nn.init.zeros_(self.c.weight)
         
     def forward(self, x):
         x = self.a(x)
@@ -235,7 +237,7 @@ if __name__ == "__main__":
         total_list.append(epoch_list)
         summary.append(accuracy)
         print(summary)
-    with open("tiny_mlp_default.csv", mode="w", newline="", encoding="utf-8") as file:
+    with open("tiny_mlp_zero.csv", mode="w", newline="", encoding="utf-8") as file:
         writer = csv.writer(file)
         writer.writerows(total_list)
     print("Done!")
