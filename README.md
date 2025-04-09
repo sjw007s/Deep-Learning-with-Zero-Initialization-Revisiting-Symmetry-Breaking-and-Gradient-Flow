@@ -8,7 +8,7 @@ https://www.researchsquare.com/article/rs-4890533/v1
 - `CNN_CIFAR_100_github.ipynb`  
 - `CNN_CIFAR_10_github.ipynb`  
 - `CNN_Mnist_github.ipynb`
-- `Tiny_imagenet.ipynb`
+- `tiny_imagenet.py`
 
 ---
 
