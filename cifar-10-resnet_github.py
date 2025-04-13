@@ -19,7 +19,7 @@ print('Current cuda device:', torch.cuda.current_device())
 print('Count of using GPUs:', torch.cuda.device_count())
 #print(torch.cuda.current_device())
 
-local_adress = "/proj/home/ibs/ccs/whvankoh/"
+local_adress = "temp"
 
 temp_list = list()
 r=open(local_adress+'/cifar-10-python/training_data_CIFAR.csv', 'r' )
