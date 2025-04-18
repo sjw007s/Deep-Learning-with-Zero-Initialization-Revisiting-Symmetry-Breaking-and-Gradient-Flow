@@ -226,7 +226,7 @@ if __name__ == "__main__":
         scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=20, gamma=0.95)
         accuracy = 0 
         epoch_list = []
-        for t in range(50):
+        for t in range(100):
             print(f"Epoch {t+1}\n-------------------------------")
             train(training_dataloader, model, loss_fn, optimizer, scaler, mixup)
             accuracy_temp = test(test_dataloader, model)
