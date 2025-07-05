@@ -1,5 +1,5 @@
 Jongwoo Seo (1st author)  
-Priprint: https://www.researchsquare.com/article/rs-4890533/v2  
+Preprint: https://www.researchsquare.com/article/rs-4890533/v2  
 
 📢 **Jongwoo Seo is currently seeking PhD positions and industry opportunities. Please feel free to reach out by email.**  
 
