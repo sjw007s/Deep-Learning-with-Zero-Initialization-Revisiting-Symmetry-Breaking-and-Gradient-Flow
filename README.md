@@ -1,11 +1,11 @@
 Jongwoo Seo (1st author)  
 Preprint: https://www.researchsquare.com/article/rs-4890533/v2  
 
-📢 **Jongwoo Seo is currently seeking PhD positions and industry opportunities. Please feel free to reach out by email.**  
+📢 Jongwoo Seo is currently seeking PhD positions and industry opportunities. Please feel free to reach out by email.
 
-**LinkedIn**: [Link](https://www.linkedin.com/in/jongwoo-seo/)  
-**Personal Website**: [Link](https://sites.google.com/view/jongwooseo/)  
-**Contact**: sjw007s@korea.ac.kr  
+LinkedIn: [Link](https://www.linkedin.com/in/jongwoo-seo/)  
+Personal Website: [Link](https://sites.google.com/view/jongwooseo/)  
+Contact: sjw007s@korea.ac.kr  
 ---
 
 ### 1. The four files below provide dataloader code for each dataset.
