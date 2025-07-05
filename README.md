@@ -1,11 +1,16 @@
+# Reevaluating Zero Initialization in Deep Learning  
+
 Jongwoo Seo (1st author)  
-Preprint: https://www.researchsquare.com/article/rs-4890533/v2  
-
-📢 Jongwoo Seo is currently seeking PhD positions and industry opportunities. Please feel free to reach out by email.
-
+Preprint: [Link](https://www.researchsquare.com/article/rs-4890533/v2)  
 LinkedIn: [Link](https://www.linkedin.com/in/jongwoo-seo/)  
 Personal Website: [Link](https://sites.google.com/view/jongwooseo/)  
+Google Scholar: [Link](https://scholar.google.co.kr/citations?hl=en&user=ikhaAuoAAAAJ)  
 Contact: sjw007s@korea.ac.kr  
+
+📢📢📢  
+Seeking PhD positions and industry opportunities — email me.  
+📢📢📢  
+
 ---
 
 ### 1. The four files below provide dataloader code for each dataset.
