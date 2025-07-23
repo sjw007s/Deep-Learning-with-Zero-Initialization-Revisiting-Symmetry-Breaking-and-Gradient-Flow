@@ -4,6 +4,7 @@ Jongwoo Seo (1st author)
 Preprint: [Link](https://www.researchsquare.com/article/rs-4890533/v2)  
 LinkedIn: [Link](https://www.linkedin.com/in/jongwoo-seo/)  
 Personal Website: [Link](https://sites.google.com/view/jongwooseo/)  
+CV: [Link](https://sites.google.com/view/jongwooseo/cv?authuser=0)  
 Google Scholar: [Link](https://scholar.google.co.kr/citations?hl=en&user=ikhaAuoAAAAJ)  
 Contact: sjw007s@korea.ac.kr  
 
