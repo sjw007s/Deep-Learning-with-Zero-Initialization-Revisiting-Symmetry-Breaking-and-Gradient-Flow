@@ -1,4 +1,4 @@
-# Reevaluating Zero Initialization in Deep Learning  
+# Deep Learning with Zero Initialization: Revisiting Symmetry Breaking and Gradient Flow
 
 Jongwoo Seo (1st author)  
 Preprint: [Link](https://www.researchsquare.com/article/rs-4890533/v2)  
