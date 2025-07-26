@@ -9,7 +9,8 @@ Google Scholar: [Link](https://scholar.google.co.kr/citations?hl=en&user=ikhaAuo
 Contact: sjw007s@korea.ac.kr  
 
 📢📢📢  
-Seeking PhD positions and industry opportunities — email me.  
+A. Seeking PhD positions and industry opportunities — email me.  
+B. Understanding the information flow between operations during forward and backward propagation is not exclusive knowledge—it’s something anyone can learn. However, some researchers may be unfamiliar with it. I’m open to helping others when possible and would gladly consider any opportunities. Feel free to reach out.  
 📢📢📢  
 
 ---
