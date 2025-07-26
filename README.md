@@ -10,7 +10,7 @@ Contact: sjw007s@korea.ac.kr
 
 📢📢📢  
 1. Seeking PhD positions and industry opportunities — email me.  
----
+<br>
 2. Understanding the information flow between operations during forward and backward propagation is not exclusive knowledge—it’s something anyone can learn. Still, some researchers may not be familiar with it. I'm open to contributing—whether it’s support, collaboration, or consulting—especially when proper credit is given (e.g., co-authorship, employment opportunity, or other fair recognition). If you're interested, feel free to reach out.  
 📢📢📢  
 
