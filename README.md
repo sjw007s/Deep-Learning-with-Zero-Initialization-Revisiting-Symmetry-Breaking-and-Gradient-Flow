@@ -6,6 +6,7 @@ LinkedIn: [Link](https://www.linkedin.com/in/jongwoo-seo/)
 Personal Website: [Link](https://sites.google.com/view/jongwooseo/)  
 CV: [Link](https://sites.google.com/view/jongwooseo/cv?authuser=0)  
 Google Scholar: [Link](https://scholar.google.co.kr/citations?hl=en&user=ikhaAuoAAAAJ)  
+Nationality: South Korean  
 Contact: sjw007s@korea.ac.kr  
 
 📢📢📢  
