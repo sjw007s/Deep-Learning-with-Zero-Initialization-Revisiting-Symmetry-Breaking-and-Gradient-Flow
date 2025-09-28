@@ -215,6 +215,12 @@ def train(dataloader, model, loss_fn, optimizer, scaler, mixup):
 
         running_loss += batch_loss_result.item()
         correct += (pred.argmax(1) == y.argmax(1)).sum().item()
+        """
+        The incorrect training accuracy calculation happened because of MixUp.
+        However, since it does not affect the evaluation metric (test accuracy),
+        the results remain valid. Because the experiments were run with this code,
+        I prefer to leave it as-is for consistency.  Sep., 28, 2025, jongwoo seo, sjw007s@korea.ac.kr
+        """
         total += y.size(0)
 
     avg_loss = running_loss / total
