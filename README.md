@@ -1,5 +1,20 @@
-sjw007s@korea.ac.kr  
-https://www.researchsquare.com/article/rs-4890533/v1
+# Deep Learning with Zero Initialization: Revisiting Symmetry Breaking and Gradient Flow
+
+Jongwoo Seo (1st author)  
+Preprint: [Link](https://www.researchsquare.com/article/rs-4890533/v2)  
+LinkedIn: [Link](https://www.linkedin.com/in/jongwoo-seo/)  
+Personal Website: [Link](https://sites.google.com/view/jongwooseo/)  
+CV: [Link](https://sites.google.com/view/jongwooseo/cv?authuser=0)  
+Google Scholar: [Link](https://scholar.google.co.kr/citations?hl=en&user=ikhaAuoAAAAJ)  
+Nationality: South Korean  
+Contact: sjw007s@korea.ac.kr  
+
+📢📢📢  
+1. Seeking PhD positions and industry opportunities — email me.  
+
+2. Understanding the gradient flow between operations during forward and backward propagation is not exclusive knowledge—it’s something anyone can learn. Still, some researchers may not be familiar with it. I'm open to contributing—whether it’s support, collaboration, or consulting—especially when proper credit is given (e.g., co-authorship, employment opportunity, or other fair recognition). If you're interested, feel free to reach out.
+
+📢📢📢  
 
 ---
 
