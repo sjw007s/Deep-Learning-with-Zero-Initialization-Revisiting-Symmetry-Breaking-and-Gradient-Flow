@@ -1,7 +1,7 @@
 # Deep Learning with Zero Initialization: Revisiting Symmetry Breaking and Gradient Flow
 
 Jongwoo Seo (1st author)  
-Preprint: [Link](https://www.researchsquare.com/article/rs-4890533/v2), [Link(the_latest_version)](https://www.researchsquare.com/article/rs-7341654/v1)  
+Preprint: [Link](https://www.researchsquare.com/article/rs-4890533/v3)  
 LinkedIn: [Link](https://www.linkedin.com/in/jongwoo-seo/)  
 Personal Website: [Link](https://sites.google.com/view/jongwooseo/)  
 CV: [Link](https://sites.google.com/view/jongwooseo/cv?authuser=0)  
@@ -9,6 +9,12 @@ Google Scholar: [Link](https://scholar.google.co.kr/citations?hl=en&user=ikhaAuo
 Github: https://github.com/sjw007s/Deep-Learning-with-Zero-Initialization-Revisiting-Symmetry-Breaking-and-Gradient-Flow  
 Nationality: South Korean  
 Contact: sjw007s@korea.ac.kr  
+
+This paper challenges a foundational axiom in deep learning theory, long stated in standard textbooks and sustained for over 30–50 years, 
+that “neural networks cannot learn when all weights and biases are initialized to zero.”
+We rigorously refute this long-held belief by mathematically and empirically demonstrating that 
+deep networks can successfully learn even under complete zero initialization, achieving performance comparable to or even surpassing random initialization. 
+Our analysis reframes random initialization as merely a special case of zero-centered symmetry breaking, making a paradigm shift in the understanding of gradient flow and network learnability.
 
 📢📢📢  
 1. Seeking PhD positions and industry opportunities — email me.  
