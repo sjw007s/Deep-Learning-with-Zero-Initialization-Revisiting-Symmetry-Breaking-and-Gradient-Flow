@@ -8,7 +8,7 @@ CV: [Link](https://sites.google.com/view/jongwooseo/cv?authuser=0)
 Google Scholar: [Link](https://scholar.google.co.kr/citations?hl=en&user=ikhaAuoAAAAJ)  
 Github: https://github.com/sjw007s/Deep-Learning-with-Zero-Initialization-Revisiting-Symmetry-Breaking-and-Gradient-Flow  
 Nationality: South Korean  
-Contact: sjw007s@korea.ac.kr  
+Contact: jongw92@gmail.com, sjw007s@korea.ac.kr  
 
 This paper challenges a foundational axiom in deep learning theory, long stated in standard textbooks and sustained for over 30–50 years, 
 that “neural networks cannot learn when all weights and biases are initialized to zero.”
