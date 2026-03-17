@@ -1,7 +1,7 @@
 # Deep Learning with Zero Initialization: Revisiting Symmetry Breaking and Gradient Flow
 
 Jongwoo Seo (1st author)  
-Preprint: [Link](https://www.researchsquare.com/article/rs-4890533/v3)  
+Published version: [Link](https://doi.org/10.1007/s11063-026-11846-1) Preprint: [Link](https://www.researchsquare.com/article/rs-4890533/v3)  
 LinkedIn: [Link](https://www.linkedin.com/in/jongwoo-seo/)  
 Personal Website: [Link](https://sites.google.com/view/jongwooseo/)  
 CV: [Link](https://sites.google.com/view/jongwooseo/cv?authuser=0)  
